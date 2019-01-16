@@ -38,12 +38,11 @@ namespace GlassfullPlugin.UI
         /// <summary>
         /// Конструктор
         /// </summary>
-        /// <param name="externalRadiusOutRim">Внешний диаметр внешнего обода</param>
-        /// <param name="externalRadiusInRim">Внутренний диаметр внутреннего обода</param>
-        /// <param name="internalRadiusInRim">Внутренний диаметр внутреннего обода</param>
-        /// <param name="supportShuft">Опорный вал</param>
-        /// <param name="widthBearing">Ширина подшипника</param>
-        /// <param name="BallChecked">Шариковый тип подшипника</param>
+        /// <param name="wallWidth">Толщина стенки стакана</param>
+        /// <param name="highDiameter">Диаметр верхней окружности стакана</param>
+        /// <param name="height">Высота стакана</param>
+        /// <param name="bottomThickness">Толщина дна стакана</param>
+        /// <param name="lowDiameter">Диаметр дна стакана</param>
         public GlasfullParametrs(double wallWidth, 
             double highDiameter, 
             double height, 

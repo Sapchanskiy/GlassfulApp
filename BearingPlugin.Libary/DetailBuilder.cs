@@ -82,12 +82,13 @@ namespace GlassfullPlugin.Libary
         }
 
         /// <summary>
-        /// Эскиз внешнего обода для шарикового подшипника
+        /// Эскиз стакана
         /// </summary>
-        /// <param name="externalRadiusOutRim"></param>
-        /// <param name="externalRadiusInRim"></param>
-        /// <param name="internalRadiusInRim"></param>
-        /// <param name="widthBearing"></param>
+        /// <param name="wallWidth"></param>
+        /// <param name="highDiameter"></param>
+        /// <param name="height"></param>
+        /// <param name="bottomThicknes"></param>
+        /// <param name="lowDiameter"></param>
         private void GlasfullSketch(double wallWidth, double highDiameter, double height, double bottomThicknes, double lowDiameter)
         { 
             CreateSketch((short)Obj3dType.o3d_planeXOY);

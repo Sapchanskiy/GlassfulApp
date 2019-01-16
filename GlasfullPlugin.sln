@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlasfullPluginUi", "Bearing
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlasfullPlugin.Library", "BearingPlugin.Libary\GlasfullPlugin.Library.csproj", "{7389DEC9-392A-44E1-9C9C-81E34A2C6381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BearingPlugin.UnitTests", "BearingPlugin.UnitTests\BearingPlugin.UnitTests.csproj", "{653E2FE9-0FB1-4008-A0B9-9B605BAEDD39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassfullPlugin.UnitTests", "BearingPlugin.UnitTests\GlassfullPlugin.UnitTests.csproj", "{653E2FE9-0FB1-4008-A0B9-9B605BAEDD39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
