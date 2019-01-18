@@ -84,7 +84,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BearingPlugin.Libary\GlasfullPlugin.Library.csproj">
+    <ProjectReference Include="..\GlasfullPlugin.Libary\GlasfullPlugin.Library.csproj">
       <Project>{7389dec9-392a-44e1-9c9c-81e34a2c6381}</Project>
       <Name>GlasfullPlugin.Library</Name>
     </ProjectReference>

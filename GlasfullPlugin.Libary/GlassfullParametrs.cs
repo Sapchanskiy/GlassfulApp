@@ -5,7 +5,7 @@ using System.Text;
 namespace GlassfullPlugin.UI
 {
     /// <summary>
-    /// Класс с параметрами подшипника
+    /// Класс, содержащий параметры стакана
     /// </summary>
     public class GlasfullParametrs
     {

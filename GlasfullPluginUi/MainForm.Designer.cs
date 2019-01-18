@@ -40,11 +40,13 @@
             this.HighDiameter = new System.Windows.Forms.TextBox();
             this.WallWidth = new System.Windows.Forms.TextBox();
             this.BuildButton = new System.Windows.Forms.Button();
+            this.FacetedGlassCheck = new System.Windows.Forms.CheckBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.FacetedGlassCheck);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.LowDiameter);
             this.groupBox2.Controls.Add(this.label4);
@@ -57,10 +59,11 @@
             this.groupBox2.Controls.Add(this.WallWidth);
             this.groupBox2.Location = new System.Drawing.Point(9, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(304, 184);
+            this.groupBox2.Size = new System.Drawing.Size(304, 187);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Построение детали";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label5
             // 
@@ -149,13 +152,23 @@
             // 
             // BuildButton
             // 
-            this.BuildButton.Location = new System.Drawing.Point(122, 204);
+            this.BuildButton.Location = new System.Drawing.Point(123, 205);
             this.BuildButton.Name = "BuildButton";
             this.BuildButton.Size = new System.Drawing.Size(75, 23);
             this.BuildButton.TabIndex = 8;
             this.BuildButton.Text = "Построить";
             this.BuildButton.UseVisualStyleBackColor = true;
             this.BuildButton.Click += new System.EventHandler(this.BuildButton_Click);
+            // 
+            // FacetedGlassCheck
+            // 
+            this.FacetedGlassCheck.AutoSize = true;
+            this.FacetedGlassCheck.Location = new System.Drawing.Point(184, 168);
+            this.FacetedGlassCheck.Name = "FacetedGlassCheck";
+            this.FacetedGlassCheck.Size = new System.Drawing.Size(114, 17);
+            this.FacetedGlassCheck.TabIndex = 11;
+            this.FacetedGlassCheck.Text = "Граненый стакан";
+            this.FacetedGlassCheck.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -164,10 +177,11 @@
             this.ClientSize = new System.Drawing.Size(325, 239);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BuildButton);
-            this.MaximumSize = new System.Drawing.Size(341, 378);
+            this.MaximumSize = new System.Drawing.Size(341, 278);
             this.MinimumSize = new System.Drawing.Size(241, 278);
             this.Name = "MainForm";
-            this.Text = "Построение подшипника";
+            this.Text = "Построение стакана";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -187,6 +201,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox LowDiameter;
+        private System.Windows.Forms.CheckBox FacetedGlassCheck;
     }
 }
 
