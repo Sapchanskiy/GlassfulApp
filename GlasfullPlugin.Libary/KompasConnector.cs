@@ -34,7 +34,7 @@ namespace GlassfullPlugin.Libary
         }
 
         /// <summary>
-        /// Закрыть Компас 3D
+        /// Закрыть Компас 3D.
         /// </summary>
         public void CloseKompas()
         {

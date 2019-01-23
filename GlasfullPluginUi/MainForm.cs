@@ -11,6 +11,9 @@ namespace GlassfullPlugin.UI
 {
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Добавить XML
+        /// </summary>
         private Libary.KompasConnector _connector;
 
         public MainForm()
