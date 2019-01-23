@@ -110,17 +110,17 @@ namespace GlassfullPlugin.Libary
         /// <param name="entitySketch"></param>
         /// <param name="toForward"></param>
         /// <returns></returns>
-    
-            private ksEntity MakeExtrude(float width, ksPart part, ksEntity entitySketch, 
-                double degrees, bool toForward = true)
-            {
-                var entityExtrude = (ksEntity)part.NewEntity((short)Obj3dType.o3d_baseExtrusion);
-                var entityExtrudeDefinition = (ksBaseExtrusionDefinition)entityExtrude.GetDefinition();
-                entityExtrudeDefinition.SetSideParam(toForward, 0, width, degrees, false);
-                entityExtrudeDefinition.SetSketch(entitySketch);
-                entityExtrude.Create();
-                return entityExtrude;
-            }
+
+        private ksEntity MakeExtrude(float width, ksPart part, ksEntity entitySketch,
+            double degrees, bool toForward = true)
+        {
+            var entityExtrude = (ksEntity)part.NewEntity((short)Obj3dType.o3d_baseExtrusion);
+            var entityExtrudeDefinition = (ksBaseExtrusionDefinition)entityExtrude.GetDefinition();
+            entityExtrudeDefinition.SetSideParam(toForward, 0, width, degrees, false);
+            entityExtrudeDefinition.SetSketch(entitySketch);
+            entityExtrude.Create();
+            return entityExtrude;
+        }
         /// <summary>
         /// Вычитание 
         /// </summary>
@@ -130,7 +130,7 @@ namespace GlassfullPlugin.Libary
         /// <param name="toForward"></param>
         /// <returns></returns>
 
-        public ksEntity ExtrusionEntity(ksPart part, float width, object entityForExtrusion, 
+        public ksEntity ExtrusionEntity(ksPart part, float width, object entityForExtrusion,
             double degrees, bool side = false)
         {
             var entityCutExtrusion = (ksEntity)part.NewEntity((short)Obj3dType.o3d_cutExtrusion);
@@ -151,7 +151,7 @@ namespace GlassfullPlugin.Libary
         /// <param name="height">Высота</param>
         /// <param name="bottomThicknes">Толщина дна</param>
         /// <param name="lowDiameter">Диаметр нижней окружности</param>
-        private void GlasfullSketch(double wallWidth, double highDiameter, double height, 
+        private void GlasfullSketch(double wallWidth, double highDiameter, double height,
             double bottomThicknes, double lowDiameter)
         {
             CreateSketch((short)Obj3dType.o3d_planeXOY);
@@ -174,7 +174,7 @@ namespace GlassfullPlugin.Libary
             RotateSketch();
         }
 
-        private void DrawCircle (double radius, int count)
+        private void DrawCircle(double radius, int count)
         {
             _sketchEdit = (ksDocument2D)_sketchDefinition.BeginEdit();
 
@@ -197,21 +197,21 @@ namespace GlassfullPlugin.Libary
         }
 
 
-        private void TestSketch(double wallWidth, double highDiameter, double height, 
+        private void TestSketch(double wallWidth, double highDiameter, double height,
             double bottomThickness, double lowDiamter)
         {
-          CreateSketch((short) Obj3dType.o3d_planeXOY);
+            CreateSketch((short)Obj3dType.o3d_planeXOY);
             var fheight = (float)height;
             var degrees = 15.0;
-          degrees = Math.Atan((highDiameter-lowDiamter)/height)*180/Math.PI;
+            degrees = Math.Atan(((highDiameter - lowDiamter)/2) / height) * 180 / Math.PI;
 
             DrawCircle(lowDiamter / 2, 16);
-            MakeExtrude(fheight, _part, _entitySketch, degrees,true);
+            MakeExtrude(fheight, _part, _entitySketch, degrees, true);
             MakeSketch(_part, bottomThickness);
             DrawCircle((lowDiamter - wallWidth) / 2, 360);
             ExtrusionEntity(_part, fheight, _entitySketch, degrees, false);
-       //     EdgeSketch(_part, 0.0f);
-        //    DrawEdge(highDiameter / 2, wallWidth, height);
+            EdgeSketch(_part, 0.0f);
+            DrawEdge(highDiameter / 2, wallWidth, height);
         }
 
         public void MakeSketch(ksPart part, double offset)
@@ -231,7 +231,7 @@ namespace GlassfullPlugin.Libary
             _entitySketch.Create();
 
         }
-        /*    public void EdgeSketch(ksPart part, float offset)
+            public void EdgeSketch(ksPart part, float offset)
             {
                 var entityPlane = (ksEntity)part.GetDefaultEntity((short)Obj3dType.o3d_planeXOZ);
                 var entityOffsetPlane = (ksEntity)part.NewEntity((short)Obj3dType.o3d_planeOffset);
@@ -248,23 +248,23 @@ namespace GlassfullPlugin.Libary
                 _entitySketch.Create();
 
             }
-            private void DrawEdge(double radius, double wallwidth, double heigh)
+            private void DrawEdge(double radius, double wallwidth, double height)
             {
                 _sketchEdit = (ksDocument2D)_sketchDefinition.BeginEdit();
                 _sketchEdit.ksLineSeg
-                    (radius, -heigh, radius + wallwidth, -heigh, 1);
+                    (radius, -height, radius - wallwidth, -height, 1);
                 _sketchEdit.ksLineSeg
-                (radius+wallwidth, -heigh, radius + wallwidth, -1.1*heigh, 1);
+                (radius-wallwidth, -height, radius - wallwidth, -1.1*height, 1);
                 _sketchEdit.ksLineSeg
-                (radius + wallwidth, -1.1*heigh, radius, -1.1*heigh, 1);
+                (radius - wallwidth, -1.1*height, radius, -1.1*height, 1);
                 _sketchEdit.ksLineSeg
-                (radius, -1.1*heigh, radius, -heigh, 1);
+                (radius, -1.1*height, radius, -height, 1);
                 _sketchEdit.ksLineSeg
                   (origin, origin, origin, -50 * 2, 3);
                 _sketchDefinition.EndEdit();
                 RotateSketch();
             }
-            */
+            
     }
-    
+
 }
