@@ -50,7 +50,7 @@ namespace GlassfullPlugin.UI
                     double.Parse(LowDiameter.Text));
                 _connector.OpenKompas();
                 var builder = new DetailBuilder(_connector.Kompas);
-                builder.CreateDetail(parameters);
+                builder.CreateDetail(parameters, FacetedGlassCheck.Checked);
             }
             catch (FormatException ex)
             {
