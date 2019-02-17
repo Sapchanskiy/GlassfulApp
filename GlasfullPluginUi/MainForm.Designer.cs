@@ -63,7 +63,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Построение детали";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // label5
             // 
@@ -181,7 +180,6 @@
             this.MinimumSize = new System.Drawing.Size(241, 278);
             this.Name = "MainForm";
             this.Text = "Построение стакана";
-            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);

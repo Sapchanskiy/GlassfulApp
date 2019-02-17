@@ -2,40 +2,27 @@
 using System.Windows.Forms;
 using GlassfullPlugin.Libary;
 using System.Text.RegularExpressions;
-using GlassfullPlugin.UI;
-using TextBox = System.Windows.Forms.TextBox;
-using System.Collections.Generic;
-
 
 namespace GlassfullPlugin.UI
 {
     public partial class MainForm : Form
     {
         /// <summary>
-        /// Добавить XML
+        /// Ссылка на экземпляр, содержащий ссылку на компас. 
         /// </summary>
-        private Libary.KompasConnector _connector;
+        private KompasConnector _connector;
 
+        /// <summary>
+        /// Инициализация формы.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
-            _connector = new Libary.KompasConnector();
+            _connector = new KompasConnector();
         }
 
         /// <summary>
-        /// Метод отображения предупреждения через MessageBox
-        /// </summary>
-        /// <param name="message">Строка сообщения</param>
-        private void ShowMessage(string message)
-        {
-            MessageBox.Show(message,
-                "Предупреждение",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Warning);
-        }
-
-        /// <summary>
-        /// Валидатор на ввод double 
+        /// Валидатор на ввод double.
         /// </summary>
         private void ValidateDoubleTextBoxs_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -55,32 +42,17 @@ namespace GlassfullPlugin.UI
                 var builder = new DetailBuilder(_connector.Kompas);
                 builder.CreateDetail(parameters, FacetedGlassCheck.Checked);
             }
-            catch (FormatException ex)
+            catch (FormatException)
             {
-                MessageBox.Show("Данные введены некоректно \nВозможно есть пустые поля или лишнии запятые",
-                    "Предупреждение",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show("Данные введены некоректно \nВозможно есть пустые поля или лишние запятые",
+                    "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             catch (ArgumentException ex)
             {
-                MessageBox.Show(ex.Message,
-                    "Предупреждение",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                MessageBox.Show(ex.Message, "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

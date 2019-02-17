@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace GlassfullPlugin.UI
-
 {
     static class Program
     {

@@ -5,44 +5,43 @@ using System.Text;
 namespace GlassfullPlugin.UI
 {
     /// <summary>
-    /// Класс, содержащий параметры стакана
+    /// Класс, содержащий параметры стакана.
     /// </summary>
     public class GlasfullParametrs
     {
         /// <summary>
-        /// Толщина стенки стакана
+        /// Толщина стенки стакана.
         /// </summary>
         public double WallWidth { get; private set; }
 
         /// <summary>
-        /// Диаметр верхней окружности стакана
+        /// Диаметр верхней окружности стакана.
         /// </summary>
         public double HighDiameter { get; private set; }
 
         /// <summary>
-        /// Высота стакана
+        /// Высота стакана.
         /// </summary>
         public double Height { get; private set; }
 
         /// <summary>
-        /// Толщина дна стакана
+        /// Толщина дна стакана.
         /// </summary>
         public double BottomThickness { get; private set; }
 
         /// <summary>
-        /// Диаметр нижней окружности стакана
+        /// Диаметр нижней окружности стакана.
         /// </summary>
         public double LowDiameter { get; private set; }
 
-
         /// <summary>
-        /// Конструктор
+        /// Конструктор.
         /// </summary>
-        /// <param name="wallWidth">Толщина стенки стакана</param>
-        /// <param name="highDiameter">Диаметр верхней окружности стакана</param>
-        /// <param name="height">Высота стакана</param>
-        /// <param name="bottomThickness">Толщина дна стакана</param>
-        /// <param name="lowDiameter">Диаметр дна стакана</param>
+        /// <param name="wallWidth">Толщина стенки стакана.</param>
+        /// <param name="highDiameter">Диаметр верхней окружности стакана.</param>
+        /// <param name="height">Высота стакана.</param>
+        /// <param name="bottomThickness">Толщина дна стакана.</param>
+        /// <param name="lowDiameter">Диаметр дна стакана.</param>
         public GlasfullParametrs(double wallWidth, 
             double highDiameter, 
             double height, 
@@ -59,14 +58,13 @@ namespace GlassfullPlugin.UI
         }
 
         /// <summary>
-        /// Валидация параметров по диапазону значения
+        /// Валидация параметров по диапазону значения.
         /// </summary>
         private void ValueValidation()
         {
-            var errorMessage = new List<String>();
+            var errorMessage = new List<string>();
 
-            if (WallWidth > (LowDiameter / 2 )) 
-              
+            if (WallWidth > (LowDiameter / 2 ))               
             {
                 errorMessage.Add("Толщина стенки стакана " +
                                  "не должна быть менее половины диаметра нижней окружности стакана ");
@@ -97,32 +95,31 @@ namespace GlassfullPlugin.UI
         }
 
         /// <summary>
-        /// Валидация параметров по типу данных
+        /// Проверка значения на NaN и Infinity.
+        /// </summary>
+        /// <param name="errorList">Список ошибок.</param>
+        /// <param name="value">Значение.</param>
+        /// <param name="name">Название параметра.</param>
+        private void CheckValue(List<string> errorList, double value, string name)
+        {
+            if (double.IsNaN(value) || double.IsInfinity(value))
+            {
+                errorList.Add($"{name} не должно быть бесконечным или несуществующим.\n");
+            }
+        }
+
+        /// <summary>
+        /// Валидация параметров по типу данных.
         /// </summary>
         private void TypeValidation()
         {
-            var errorMessage = new List<String>();
+            var errorMessage = new List<string>();
 
-            if (double.IsNaN(WallWidth))
-            {
-                errorMessage.Add("Толщина стенки стакана должна быть числом\n"); 
-            }
-            if (double.IsNaN(HighDiameter))
-            {
-                errorMessage.Add("Диаметр верхней окружности стакана должен быть числом\n");
-            }
-            if (double.IsNaN(Height))
-            {
-                errorMessage.Add("Высота стакана должна быть числом\n");
-            }
-            if (double.IsNaN(BottomThickness))
-            {
-                errorMessage.Add("Толщина стакана должна быть числом");
-            }
-            if (double.IsNaN(LowDiameter))
-            {
-                errorMessage.Add("Диаметр нижней окружности стакана должен быть числом");
-            }
+            CheckValue(errorMessage, WallWidth, "Толщина стенки");
+            CheckValue(errorMessage, HighDiameter, "Диаметр верхней окружности стакана");
+            CheckValue(errorMessage, Height, "Высота стакана");
+            CheckValue(errorMessage, BottomThickness, "Толщина дна стакана");
+            CheckValue(errorMessage, LowDiameter, "Диаметр нижней окружности");
 
             if (errorMessage.Count > 0)
             {

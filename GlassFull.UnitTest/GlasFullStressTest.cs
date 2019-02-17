@@ -45,7 +45,7 @@ namespace GlassFull.UnitTest
 
                 _cpuCounter.NextValue();
 
-                builder.CreateDetail(parameters, false);
+                builder.CreateDetail(parameters, true);
 
                 var ram = _ramCounter.NextValue();
                 var cpu = _cpuCounter.NextValue();
