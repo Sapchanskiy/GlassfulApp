@@ -84,9 +84,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlasfullPlugin.Libary\GlasfullPlugin.Library.csproj">
+    <ProjectReference Include="..\GlasfullPlugin.Libary\GlassfulPlugin.Library.csproj">
       <Project>{7389dec9-392a-44e1-9c9c-81e34a2c6381}</Project>
-      <Name>GlasfullPlugin.Library</Name>
+      <Name>GlassfulPlugin.Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

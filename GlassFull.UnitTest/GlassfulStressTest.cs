@@ -21,7 +21,7 @@ namespace GlassFull.UnitTest
         [SetUp]
         public void Test()
         {
-            _writer = new StreamWriter(@"C:\Games\StressTest.txt");
+            _writer = new StreamWriter($@"{AppDomain.CurrentDomain.BaseDirectory}\StressTest.txt");//заменено на относительный путь
         }
 
         [Test]

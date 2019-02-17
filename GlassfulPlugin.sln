@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlasfullPlugin.Library", "GlasfullPlugin.Libary\GlasfullPlugin.Library.csproj", "{7389DEC9-392A-44E1-9C9C-81E34A2C6381}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassfulPlugin.Library", "GlasfullPlugin.Libary\GlassfulPlugin.Library.csproj", "{7389DEC9-392A-44E1-9C9C-81E34A2C6381}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlasfullPluginUi", "GlasfullPluginUi\GlasfullPluginUi.csproj", "{CC927A68-96FC-406B-AF7A-AE189B21CA31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassfulPluginUi", "GlasfullPluginUi\GlassfulPluginUi.csproj", "{CC927A68-96FC-406B-AF7A-AE189B21CA31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlassFull.UnitTest", "GlassFull.UnitTest\GlassFull.UnitTest.csproj", "{9B3CCFC3-9A43-4BE7-8A06-25C0D5D4F340}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Glassful.UnitTest", "GlassFull.UnitTest\Glassful.UnitTest.csproj", "{9B3CCFC3-9A43-4BE7-8A06-25C0D5D4F340}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

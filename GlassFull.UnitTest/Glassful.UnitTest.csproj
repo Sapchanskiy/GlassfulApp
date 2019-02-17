@@ -55,21 +55,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlasFullStressTest.cs" />
-    <Compile Include="GlasFullUnitTests.cs" />
+    <Compile Include="GlassfulStressTest.cs" />
+    <Compile Include="GlassfulUnitTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlasfullPlugin.Libary\GlasfullPlugin.Library.csproj">
+    <ProjectReference Include="..\GlasfullPlugin.Libary\GlassfulPlugin.Library.csproj">
       <Project>{7389dec9-392a-44e1-9c9c-81e34a2c6381}</Project>
-      <Name>GlasfullPlugin.Library</Name>
+      <Name>GlassfulPlugin.Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GlasfullPluginUi\GlasfullPluginUi.csproj">
+    <ProjectReference Include="..\GlasfullPluginUi\GlassfulPluginUi.csproj">
       <Project>{cc927a68-96fc-406b-af7a-ae189b21ca31}</Project>
-      <Name>GlasfullPluginUi</Name>
+      <Name>GlassfulPluginUi</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
