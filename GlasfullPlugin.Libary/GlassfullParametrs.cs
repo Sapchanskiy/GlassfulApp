@@ -7,7 +7,7 @@ namespace GlassfullPlugin.UI
     /// <summary>
     /// Класс, содержащий параметры стакана.
     /// </summary>
-    public class GlasfullParametrs
+    public class GlassfulParametrs
     {
         /// <summary>
         /// Толщина стенки стакана.
@@ -42,7 +42,7 @@ namespace GlassfullPlugin.UI
         /// <param name="height">Высота стакана.</param>
         /// <param name="bottomThickness">Толщина дна стакана.</param>
         /// <param name="lowDiameter">Диаметр дна стакана.</param>
-        public GlasfullParametrs(double wallWidth, 
+        public GlassfulParametrs(double wallWidth, 
             double highDiameter, 
             double height, 
              double bottomThickness, double lowDiameter)

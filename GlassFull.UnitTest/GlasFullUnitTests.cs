@@ -4,24 +4,22 @@ using GlassfullPlugin.UI;
 
 namespace GlassFull.UnitTest
 {
-
     [TestFixture]
     public class UnitTests
     {
-        private GlasfullParametrs _parameters;
+        private GlassfulParametrs _parameters;
 
         [SetUp]
         public void Test()
         {
-
-            _parameters = new GlasfullParametrs(1, 10, 10, 1, 8);
+            _parameters = new GlassfulParametrs(1, 10, 10, 1, 8);
         }
 
         [Test(Description = "Позитивный тест конструктора класса ")]
 
         public void TestGlassfulParametrs_CorrectValue()
         {
-            var expectedParameters = new GlasfullParametrs(1, 10, 10, 1, 8);
+            var expectedParameters = new GlassfulParametrs(1, 10, 10, 1, 8);
             var actual = _parameters;
 
             Assert.AreEqual
@@ -74,13 +72,13 @@ namespace GlassFull.UnitTest
         [TestCase(1, 10, 10, 1, double.PositiveInfinity, "BottomThickness", "PositiveInfinity",
             TestName = "Негативный тест на PositiveInfinity поля BottomThickness")]
 
-        public void TestGlasFullParamets_NanValue
+        public void TestGlassfulParamets_NanValue
             (double wallWidth, double highDiameter, double height,
             double lowDiameter, double bottomThickness, string attr, string par)
         {
             Assert.Throws<ArgumentException>(
                 () => {
-                    var parameters = new GlasfullParametrs
+                    var parameters = new GlassfulParametrs
                 (wallWidth, highDiameter, height, lowDiameter, bottomThickness);
                 },
                 $"Возникнет исключение если в поле {attr} значение {par}.");
@@ -97,13 +95,13 @@ namespace GlassFull.UnitTest
         [TestCase(1, 10, 10, 8, 7, "bottomThickness",
             TestName = "Негативный тест поля internalRadiusInRim если bottomThickness > height/2")]
 
-        public void TestGlasFullParametrs_ArgumentValue
+        public void TestGlassfulParametrs_ArgumentValue
         (double wallWidth, double highDiameter, double height,
             double lowDiameter, double bottomThickness, string attr)
         {
             Assert.Throws<ArgumentException>(
                 () => {
-                    var parameters = new GlasfullParametrs
+                    var parameters = new GlassfulParametrs
                         (wallWidth, highDiameter, height, lowDiameter, bottomThickness);
                 },
                 "Должно возникнуть исключение если значение поля "

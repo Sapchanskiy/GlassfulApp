@@ -82,7 +82,7 @@ namespace GlassfullPlugin.Libary
         /// </summary>
         /// <param name="parameters">Параметры стакана.</param>
         /// <param name="checkFaceted">Определяем, граненый ли стакан.</param>
-        public void CreateDetail(GlasfullParametrs parameters, bool checkFaceted)
+        public void CreateDetail(GlassfulParametrs parameters, bool checkFaceted)
         {
             if (_kompas != null)
             {
@@ -105,7 +105,7 @@ namespace GlassfullPlugin.Libary
             }
             else // Иначе строим обычный стакан
             {
-                GlasfullSketch(wallwidth, highdiameter, height, bottomthickness, lowdiameter);
+                GlassfulSketch(wallwidth, highdiameter, height, bottomthickness, lowdiameter);
             }
         }
 
@@ -178,7 +178,7 @@ namespace GlassfullPlugin.Libary
         /// <param name="bottomThicknes">Толщина дна.</param>
         /// <param name="lowDiameter">Диаметр нижней окружности.</param>
         /// <return>Возвращает выдавленный эскиз.</return>
-        private void GlasfullSketch(double wallWidth, double highDiameter, double height,
+        private void GlassfulSketch(double wallWidth, double highDiameter, double height,
             double bottomThicknes, double lowDiameter)
         {
             CreateSketch((short)Obj3dType.o3d_planeXOY);

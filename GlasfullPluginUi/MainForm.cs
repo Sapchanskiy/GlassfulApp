@@ -33,7 +33,7 @@ namespace GlassfullPlugin.UI
         {
             try
             {
-                var parameters = new GlasfullParametrs(double.Parse(WallWidth.Text),
+                var parameters = new GlassfulParametrs(double.Parse(WallWidth.Text),
                     double.Parse(HighDiameter.Text),
                     double.Parse(Height.Text),
                     double.Parse(BottomThickness.Text),

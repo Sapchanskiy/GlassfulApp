@@ -11,7 +11,7 @@ using Environment = System.Environment;
 namespace GlassFull.UnitTest
 {
     [TestFixture]
-   public class GlasFullStressTest
+   public class GlassfulStressTest
     {
         private KompasObject _kompas;
         private StreamWriter _writer;
@@ -29,7 +29,7 @@ namespace GlassFull.UnitTest
         {
             StartKompas();
             var builder = new DetailBuilder(_kompas);
-            var parameters = new GlasfullParametrs(1.0d, 10.0d, 10.0d, 1.0d, 8.0d);
+            var parameters = new GlassfulParametrs(1.0d, 10.0d, 10.0d, 1.0d, 8.0d);
             var count = 500;
 
             for (int i = 0; i < count; i++)
