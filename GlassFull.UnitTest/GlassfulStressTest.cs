@@ -11,62 +11,46 @@ using Environment = System.Environment;
 namespace GlassFull.UnitTest
 {
     [TestFixture]
-   public class GlassfulStressTest
+    public class GlassfulStressTest
     {
-        private KompasObject _kompas;
-        private StreamWriter _writer;
-        private PerformanceCounter _ramCounter;
-        private PerformanceCounter _cpuCounter;
-
-        [SetUp]
-        public void Test()
-        {
-            _writer = new StreamWriter($@"{AppDomain.CurrentDomain.BaseDirectory}\StressTest.txt");//заменено на относительный путь
-        }
-
         [Test]
         public void Start()
         {
-            StartKompas();
-            var builder = new DetailBuilder(_kompas);
+            var writer = new StreamWriter($@"{AppDomain.CurrentDomain.BaseDirectory}\StressTest.txt");//заменено на относительный путь
+
+            var kompas = StartKompas();
+            var builder = new DetailBuilder(kompas);
             var parameters = new GlassfulParametrs(1.0d, 10.0d, 10.0d, 1.0d, 8.0d);
             var count = 500;
 
+            var processes = Process.GetProcessesByName("KOMPAS");
+            var process = processes.First();
+
+            var ramCounter = new PerformanceCounter("Process", "Working Set", process.ProcessName);
+            var cpuCounter = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
+
             for (int i = 0; i < count; i++)
             {
-                var processes = Process.GetProcessesByName("KOMPAS");
-                var process = processes.First();
+                cpuCounter.NextValue();
 
-                if (i == 0)
-                {
-                    _ramCounter = new PerformanceCounter("Process", "Working Set", process.ProcessName);
-                    _cpuCounter = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
-                }
+                builder.CreateDetail(parameters, false);
 
-                _cpuCounter.NextValue();
+                var ram = ramCounter.NextValue();
+                var cpu = cpuCounter.NextValue();
 
-                builder.CreateDetail(parameters, true);
-
-                var ram = _ramCounter.NextValue();
-                var cpu = _cpuCounter.NextValue();
-
-                _writer.Write($"{i}. ");
-                _writer.Write($"RAM: {Math.Round(ram / 2048 / 2048)} MB");
-                _writer.Write($"\tCPU: {cpu} %");
-                _writer.Write(Environment.NewLine);
-                _writer.Flush();
+                writer.Write($"{i}. ");
+                writer.Write($"RAM: {Math.Round(ram / 1024 / 1024)} MB");
+                writer.Write($"\tCPU: {cpu} %");
+                writer.Write(Environment.NewLine);
+                writer.Flush();
             }
         }
 
-        public void StartKompas()
+        public KompasObject StartKompas()
         {
-            if (_kompas == null)
-            {
-                var type = Type.GetTypeFromProgID("KOMPAS.Application.5");
-                _kompas = (KompasObject)Activator.CreateInstance(type);
-                _kompas.Visible = true;
-                _kompas.ActivateControllerAPI();
-            }
+            var kompas = new KompasConnector();
+            kompas.OpenKompas();
+            return kompas.Kompas;
         }
 
     }

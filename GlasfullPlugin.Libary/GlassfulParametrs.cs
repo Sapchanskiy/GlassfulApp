@@ -35,6 +35,11 @@ namespace GlassfullPlugin.UI
         public double LowDiameter { get; private set; }
 
         /// <summary>
+        /// Константа для перевода в сантиметры
+        /// </summary>
+        private const double _tomm = 10.0;
+
+        /// <summary>
         /// Конструктор.
         /// </summary>
         /// <param name="wallWidth">Толщина стенки стакана.</param>
@@ -47,11 +52,11 @@ namespace GlassfullPlugin.UI
             double height, 
              double bottomThickness, double lowDiameter)
         {
-            WallWidth = wallWidth;
-            HighDiameter = highDiameter;
-            Height = height;
-            BottomThickness = bottomThickness;
-            LowDiameter = lowDiameter;
+            WallWidth = wallWidth * _tomm;
+            HighDiameter = highDiameter * _tomm;
+            Height = height * _tomm;
+            BottomThickness = bottomThickness * _tomm;
+            LowDiameter = lowDiameter * _tomm;
 
             ValueValidation();
             TypeValidation();

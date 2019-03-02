@@ -90,11 +90,11 @@ namespace GlassfullPlugin.Libary
                 _doc3D.Create(false, true);
             }
 
-            var wallwidth = parameters.WallWidth * 10;
-            var highdiameter = parameters.HighDiameter * 10;
-            var height = parameters.Height * 10;
-            var bottomthickness = parameters.BottomThickness * 10;
-            var lowdiameter = parameters.LowDiameter * 10;
+            var wallwidth = parameters.WallWidth;
+            var highdiameter = parameters.HighDiameter;
+            var height = parameters.Height;
+            var bottomthickness = parameters.BottomThickness;
+            var lowdiameter = parameters.LowDiameter;
 
             _doc3D = (ksDocument3D)_kompas.ActiveDocument3D();
             _part = (ksPart)_doc3D.GetPart((short)Part_Type.pTop_Part);
@@ -255,7 +255,7 @@ namespace GlassfullPlugin.Libary
         }
 
         /// <summary>
-        /// Создание эскиза.
+        /// Создание эскиза для вычитания полости.
         /// </summary>
         /// <param name="part">Указатель на деталь.</param>
         /// <param name="offset">Отстройка плоскости по высоте, равная толщине дна стакана.</param>
